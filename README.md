@@ -1,111 +1,64 @@
-# Laporan Proyek Machine Learning Terapan - Hilda Afifah 
-MEMBUAT MODEL SISTEM REKOMENDASI BUKU DENGAN METODE COLLABORATIVE FILTERING
+# Laporan Proyek Machine Learning - Hilda Afifah
+Machine learning Klasifikasi Gambar, menentukan gambar kucing atau anjing 
 
 ## Domain Proyek
-Buku merupakan informasi segala kebutuhan yang diperlukan, dimulai dari iptek, seni budaya, ekonomi, politik, sosial dan pertahanan keamanan dan lain-lain. Upaya membaca buku membuka wawasan dunia intelek sehingga dapat mengubah masa depan serta mencerdaskan akal, pikiran dan iman.Dengan membaca buku, selain pengetahuan akan semakin bertambah, pribadi akan semakin   kaya, yang kesemuannya jelas akan menurunkan efek negatif terhadap anak-anak, yakni kenakalan. Sedangkan anak yang tidak terbina minat bacanya sejak  dini  akan menghadapi  peluang  yang  semakin kecil untuk mengembangkan pengetahuan setinggi-tingginya. Namun berdasarkan laporan _Bank Dunia_, Indonesia merupakan negara yang memiliki minat baca sangat rendah. Hal tersebut sungguh disayangkan, mengingat sebagai negara besar, Indonesia memiliki potensi besar untuk menjadi negara yang unggul.[1]
+Hewan merupakan makhluk hidup yang banyak masyarakat memelihara, hewan peliharaan terutama anjing dan kucing, karena memiliki karakter dan fungsi yang beragam dan menyenangkan manusia. Pada pengolahan citra, proses pengklasifikasian objek merupakan salah satu bagian permasalahan dalam _computer Vision_. Tujuan pengklasifikasian citra ini adalah proses memasukkan citra kedalam beberapa kategori yang disesuaikan dengan kebutuhan. Ide dari pengklasifikasian citra yang spesifik dengan memberi masukkan dari sekumpulan angka yang diproses dan menghasilkan angka yang merupakan representasi dari kategori citra tersebut, dan hasil dari klasifikasi citra digital dapat menjadi alternatif dalam mengenali hewan. Selain itu proses mengklasifikasikan citra anjing dan kucing ini diharapkan adalah komputer dapat mengenali dan membedakan objek pada citra selayaknya manusia[1]
 
-Hal itu sangat berpengaruh dengan Potensi negara,terkait dengan rendahnya minat baca di Indonesia. Rendahnya minat baca masyarakat Indonesia menjadi salah satu faktor yang menyebabkan rendahnya kualitas sumber daya manusia di Indonesia. Oleh karena itu, meningkatkan minat baca masyarakat Indonesia dapat membantu meningkatkan kualitas sumber daya manusia di Indonesia dan berpotensi meningkatkan kemajuan negara.
-Dengan Sistem rekomendasi buku dapat membantu mengatasi rendahnya minat baca di Indonesia dengan cara memberikan rekomendasi buku yang sesuai dengan minat atau kesukaan pembaca.
-Hal ini dapat meningkatkan minat baca masyarakat Indonesia karena akan lebih tertarik untuk membaca buku yang sesuai dengan minat mereka
-Selain itu, sistem rekomendasi buku juga dapat membantu para pembaca untuk lebih mudah mendapatkan informasi mengenai buku yang akan dibaca. Dengan adanya sistem rekomendasi buku, para pembaca tidak perlu lagi bingung memilih buku yang ingin dibaca dan dapat lebih mudah menemukan buku yang sesuai dengan minat mereka
-
-Sistem rekomendasi sendiri telah digunakan secara luas oleh hampir semua area bisnis dimana seorang konsumen memerlukan informasi untuk membuat suatu keputusan. Terdapat dua pendekatan  yang umumnya digunakan dalam membuat sitem rekomendasi, yaitu _content based filtering_ dan _collaborative filtering_. _Content based filtering_ merupakan metode yang bekerja dengan  mencari kedekatan suatu item yang akan direkomendasikan ke _user_ dengan _items_ yang  telah  diambil  oleh pengguna sebelumnya berdasarkan kemiripan antar kontennya.Namun, sistem  rekomendasi berbasis  konten  ini masih  memiliki  kelemahan,  yaitu  karena semua informasi dipilih dan direkomendasikan berdasarkan   konten,maka    pengguna    tidak    mendapatkan rekomendasi pada jenis konten yang berbeda. Selain itu, sistem rekomendasi ini kurang efektif untuk pengguna pemula, karena  pengguna yang masih pemula tidak mendapat masukan dari pengguna sebelumnya. (Li, 2002) 
-Pendekatan  lain  untuk  menutup kelemahan  dari _content  based  filtering_ dikembangkan, yaitu _collaborative filtering_. Sistem _collaborative filtering_ adalah metode yang digunakan untuk memprediksi kegunaan item berdasarkan penilaian pengguna sebelumnya. _Collaborative Filtering_ dapat digunakan untuk membuat sistem rekomendasi, akan tetapi perhitungan dalam algoritma sangat bergantung pada hasil rekomendasi. Seperti halnya skenario yang digunakan dalam perhitungan _similarity_, antara metode _pearson correlation_ dan _adjusted cosine similarity_ memberikan hasil yang berbeda. [2]
+Pengenalan wajah menggunakan _machine learning_ sangat penting. Dengan menggunakan _machine learning_, teknologi pengenalan wajah dapat mencapai tingkat akurasi yang tinggi dalam mengenali wajah hewan (kucing dan anjing) atau wajah seseorang. Algoritme _machine learning_ seperti _neural network_ dapat meniru proses otak manusia dalam mengenali fitur-fitur khusus pada wajah, seperti jarak antara mata, tinggi dahi, lebar hidung, dan sebagainya. Algoritme _facial recognition_ dirancang untuk memetakan fitur wajah seseorang secara matematis.
+Selain itu Teknologi pengenalan wajah menggunakan _machine learning_ dapat diterapkan dalam berbagai bidang, seperti keamanan, pengenalan identitas, sehingga dapat digunakan untuk mendeteksi ancaman dan memprediksi risiko keamanan.
 
 ## Business Understanding
-Dampak positif dari sistem rekomendasi buku untuk pembelajaran adalah
-1.Pembelajaran meningkat dengan Sistem rekomendasi buku dapat memberikan rekomendasi yang _dipersonalisasi_ berdasarkan minat dan preferensi pengguna. Hal ini dapat membantu pelajar menemukan sumber daya yang relevan dan berkualitas tinggi sehingga menghasilkan pengalaman pembelajaran yang lebih efektif dan efisien.
-2.Dengan menyarankan buku yang sesuai dengan minat pengguna, sehingga  dapat meningkatkan keterlibatan dan motivasi untuk mengeksplorasi dan mempelajari lebih lanjut tentang pembelajaran mesin. Hal ini dapat mengarah pada pemahaman dan penguasaan subjek yang lebih dalam.
-3. sistem rekomendasi buku juga dapat membantu pengguna dengan cepat menemukan buku yang relevan dengan kebutuhan dan minat spesifik mereka. Ini menghemat waktu dibandingkan dengan mencari buku secara manual atau mengandalkan rekomendasi umum
-4. Dapat memperkenalkan pengguna pada buku-buku yang mungkin belum mereka temukan sendiri. Hal ini dapat memaparkan mereka pada perspektif, pendekatan, dan penulis berbeda di bidang pembelajaran mesin, sehingga memperluas pengetahuan dan pemahaman 
-5.Dan juga dapat mempertimbangkan gaya belajar pengguna dan merekomendasikan buku yang selaras dengan cara belajar pilihan. Pendekatan yang dipersonalisasi ini dapat meningkatkan pengalaman belajar dan memenuhi kebutuhan individu.
+Adapun dampak positifnya dari masalah pengenalan wajah adalah dapat memudahkan dalam memantau aktivitas anjing atau kucing secara _real-time_. Hal ini dapat membantu pemilik hewan peliharaan untuk memastikan bahwa hewan peliharaan aman dan tidak melakukan hal-hal yang tidak diinginkan, dan juga meningkatkan keamanan, jadi pemilik hewan peliharaan dapat memastikan bahwa hanya anjing atau kucing yang dapat masuk ke dalam rumah atau area tertentu. Hal ini dapat membantu mencegah anjing atau kucing yang tidak diinginkan masuk ke dalam rumah dan mengganggu hewan peliharaan yang ada di dalamnya. Dengan penerapan teknologi pengenalan otomatis menggunakan _machine learning_, diharapkan dapat memberikan kemudahan, keamanan, dan kenyamanan bagi pemilik hewan peliharaan dalam merawat dan memantau aktivitas hewan peliharaan.
 
 ### Problem Statements
-Permasalahan yang ada dalam proyek sistem Rekomendasi Buku ini adalah
-- bagaimana proses sistem rekomedasi buku dengan _recommedernet_?
-- Mengapa proyek ini mengembangkan dan menerapkan model sistem rekomendasi buku dengan menggunakan metode _Collaborative Filtering_?
+Permasalahan yang ada dalam proyek pengenalan wajah kucing dan anjing adalah
+- bagaimana proses klasifikasi dengan _CNN_ mampu menghasilkan deteksi objek citra anjing dan kucing serta membedakan modelnya?
+- Bagaimana penggunaan dataset training dengan resolusi citra (gambar) yang bagus dapat membuat model yang dipakai lebih baik dan mengurangi _overfitting_?
+- Berapa % capaian akurasi dan presisi sistem klasifikasi terhadap penganalan anjing dan kucing ?
 
 ### Goals
-Solusi dari permasalahan tersebut adalah 
--Proses penentuan rekomendasi pada sistem rekomendasi seperti yang _diimplementasikan_ dalam program _RecommenderNet_ dapat dilakukan dengan beberapa langkah, yaitu:
-Sistem data input berupa _user ID_ dan _book ID_ yang ingin direkomendasikan.
- _User ID_ dan _book ID_ diubah menjadi vektor _embedding_ yang merepresentasikan karakteristik dari _user_ dan _book_ tersebut. Pada program _RecommenderNet_, _embedding_ dilakukan menggunakan layer-layer _embedding_ yang telah didefinisikan.
-Vektor _embedding user_ dan _book_ dihitung _dot product-nya_ untuk menghasilkan nilai rekomendasi.
-Nilai rekomendasi yang dihasilkan menggunakan fungsi aktivasi _sigmoid_ untuk menghasilkan nilai rekomendasi akhir.
-_Output_, Sistem mengeluarkan rekomendasi berupa _book ID_ yang memiliki nilai rekomendasi tertinggi.
-
--Proyek ini mengembangkan dan menerapkan model sistem rekomendasi buku dengan menggunakan metode _Collaborative Filtering_ karena membantu merekomendasikan buku yang sesuai dan mengatasi kesulitan dalam memilih buku. Dengan mengembangkan dan menerapkan model sistem rekomendasi buku menggunakan metode _Collaborative Filtering,_ proyek ini bertujuan untuk meningkatkan minat baca di Indonesia dengan memberikan rekomendasi buku yang relevan dan sesuai dengan minat pembaca
+Penyelesaian mengenai masalah diatas adalah dengan
+- langkah-langkah yaitu import beberapa _libraries_ yang dapat mendeteksi gambar. Lalu mendefinisikan ukuran gambar yang ingin diterapkan. Selanjutnya menggunakan dataset yang telah diperoleh untuk mendapatkan data yang dapat dilatih dari
+total data yang didapatkan
+- _Menvisualisasikan_ grafik keakuratan pada proses _training_ hingga validasi data yang diperoleh. Dan menggunakan _Callback_ untuk mengurangi _overftting_
+- pencapaian % akurasi dihentikan ketika 80%, karena akurasi tidak boleh turun di bawah 80% untuk mencegah model dari _overfitting_ ke data pelatihan.
 
 ## Data Understanding
-Data yang digunakan _mengimport_ dari _kaggle_ , (https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset)
-Dengan empat file, yaitu books, ratings, users dan satu file png dan jumlah dari masing-masing file adalah
-Jumlah data buku:  271360
-Jumlah data penilaian :  340556
-Jumlah data pengguna:  166.
-Dalam pembuatan sistem rekomendasi buku, variabel-variabel dalam kumpulan data seperti Book, User, dan Rating akan digunakan untuk membangun model rekomendasi yang efektif.
-Book (kumpulan macam-macam buku, penulis buku, penerbit buku), Penting untuk mengidentifikasi dan mengkategorikan buku berdasarkan genre, penulis, dan penerbit.
-Rating, Penilaian buku oleh pembaca akan digunakan untuk mempelajari preferensi dan kesukaan pembaca.
-User, Informasi tentang pengguna seperti yang akan digunakan untuk memahami minat dan perilaku pembaca.
+Data yang digunakan _mengimport_ dari _kaggle_ , https://www.kaggle.com/datasets/tongpython/cat-and-dog
+pertama Menentukan direktori, dari isi folder itu ada tiga yaitu bahan, latih dan validasi, lalu  _print_ jumlah data yang terdiri dari dua kategori, yaitu anjing dan kucing, akan muncul keterangan kategori kucing ada 1011 gambar dan untuk kategori anjing ada 1015 gambar. Setiap data dalam kumpulan data _direpresentasikan_ dalam format file gambar seperti _JPEG_ atau _PNG_. Setiap gambar memiliki ukuran dan resolusi yang berbeda. 
 
 ### Variabel-variabel pada cats and dog dataset adalah sebagai berikut:
-Variabel dalam kumpulan data sistem rekomendasi adalah
-- _Book_ : kumpulan macam-macam buku, penulis buku, penerbit buku
-- _User_ : merupaka data pengguna
-- _Rating_ : penilaian buku dari berbagai pembaca
-- Metode Collaborative Filtering: Metode ini digunakan untuk membangun model rekomendasi berdasarkan kesamaan preferensi antara pengguna dan pengguna lain dalam dataset.
-- Algoritma: Algoritma digunakan untuk memproses data dan membangun model rekomendasi. 
+Variabel dalam kumpulan data adalah gambar yang berupa kucing atau anjing. Gambar tersebut digunakan untuk melatih dan menguji algoritma pembelajaran mesin untuk mengklasifikasikan apakah suatu gambar berisi kucing atau anjing
+- cats : merupakan hewan jenis kucing
+- dogs : merupakan hewan jenis anjing
 
 ## Data Preparation
-Dalam pembuatan sistem rekomendasi buku, ada beberapa proses penting yaitu
-Mengecek keberadaan _missing value_,  ini dilakukan untuk memastikan apakah terdapat _missing value_ dalam dataset. Jika terdapat , langkah selanjutnya adalah membersihkan _missing value_ agar tidak mempengaruhi kualitas rekomendasi. Dalam notebook, langkah ini dilakukan dengan menggunakan fungsi _isnull()_ untuk mengecek keberadaan _missing value_, kemudian menggunakan fungsi _dropna()_ untuk membersihkan _missing value._
-Pengurutan buku berdasarkan ISBN, dilakukan untuk mengurutkan buku berdasarkan ISBN (International Standard Book Number). Pengurutan ini berguna untuk mempermudah proses rekomendasi berdasarkan kesamaan karakteristik buku.
-Memasukkan buku yang telah diurutkan ke dalam variabel _fix_ buku. Setelah dilakukan pengurutan buku berdasarkan ISBN, buku-buku tersebut dimasukkan ke dalam variabel _fix_ buku. Tujuan dari langkah ini adalah untuk mempersiapkan data buku yang akan digunakan dalam proses _modelling._
-_Duplikasi_ data yang dapat mempengaruhi kualitas rekomendasi dan menghasilkan rekomendasi yang tidak akurat. Oleh karena itu, data duplikat perlu dihapus sebelum dilakukan proses _modelling_. Dalam notebook, proses ini dilakukan pada data rating.
-dan Pembuatan _dictionary_ yang digunakan untuk menyimpan informasi tentang buku dan pengguna. _Dictionary_ ini akan digunakan dalam proses _modelling_ untuk membangun model rekomendasi. Dalam notebook, proses ini dilakukan dengan membuat _dictionary_ untuk data buku dan data pengguna.
-
+Data _Image generator_ digunakan untuk membuat gambar dari teks atau input data lainnya yang dapat membantu dalam pemrosesan data. _Image generator_ dapat membantu masalah pengolahan data, mampu membuat gambar tambahan dari yang sudah ada. Dengan menghasilkan gambar baru model dapat dilatih pada kumpulan data yang lebih besar dan beragam, yang dapat meningkatkan akurasinya. Langkah pertama adalah mengimpor pustaka yang diperlukan dengan cara _import_ _imagedatagenerator._
+__Training set_ digunakan untuk melatih model dan mengoptimalkan parameter, sedangkan _testing set_ digunakan untuk menguji performa model yang telah dilatih pada data yang belum pernah dilihat sebelumnya. Rasio pembagian _dataset_ antara _training set_ dan _testing set_ adalah (90%:10%) menghasilkan _train_ 1821 dan hasil _validation_ 204 dari dua kelas.
+_tensorflow_ untuk membuat dan melatih model.
+_ImageDataGenerator_ dari _tensorflow.keras.preprocessing.image_ untuk augmentasi data dan menyiapkan generator data untuk pelatihan dan validasi dan menggunakan _ImageDataGenerator_ untuk melakukan augmentasi data pada gambar pelatihan. Beberapa augmentasi yang diterapkan meliputi _rescaling_ dengan nilai 1/255, _rotation_range_, 20 _horizontal_ dan _vertical_shearing_, 0.2 _zooming_, 0.1 
+_width_shift_range_ 0.2 dan , _height_shift_range_ 0.2. Setelah itu, menggunakan _flow_from_directory_ untuk membuat generator pelatihan dan validasi. kita menentukan _class_mode_ yaitu _'categorical_'. Gambar juga diubah ukurannya menjadi 150x150 piksel menggunakan parameter target _size._
+ 
 ## Modeling
-Mengenai cara kerja model _RecommenderNet_ yaitu 
-Model _RecommenderNet_ membutuhkan data rating dari pengguna yang mencerminkan preferensi dan kesukaan mereka terhadap buku. 
-Data rating yang dikumpulkan akan digunakan untuk membangun matriks rating. Matriks rating ini akan merepresentasikan hubungan antara pengguna dan buku. 
-Sebelum dilakukan proses _modelling,_ data rating perlu diproses terlebih dahulu. Hal ini termasuk membersihkan data duplikat, mengisi _missing value_ jika ada, dan melakukan normalisasi data jika diperlukan. Tujuan dari pemrosesan data ini adalah untuk memastikan kualitas data yang digunakan dalam proses _modelling_.
-Setelah data rating diproses, model _RecommenderNet_ akan dibangun menggunakan metode _Collaborative Filtering_. Metode ini akan mempelajari pola dan hubungan antara pengguna dan buku berdasarkan data rating yang ada. 
-Dan Setelah model dibangun, langkah selanjutnya adalah melakukan evaluasi terhadap model untuk mengukur kualitas dan performanya. Evaluasi dilakukan dengan menggunakan metrik seperti _Root Mean Square Error (RMSE)_ untuk mengevaluasi sejauh mana model dapat memberikan rekomendasi yang akurat dan relevan.
-Setelah model dievaluasi, model _RecommenderNet_ dapat digunakan untuk memberikan rekomendasi buku kepada pengguna. Rekomendasi ini didasarkan pada kesamaan preferensi dan kesukaan pengguna dengan pengguna lain dalam dataset. Model akan mengidentifikasi buku-buku yang disukai oleh pengguna lain dengan preferensi serupa dan merekomendasikannya kepada pengguna.
-
-Model _RecommenderNet_ sesuai untuk metode _Collaborative Filtering_ karena model ini menggunakan data rating dari pengguna untuk mempelajari preferensi dan perilaku pembaca. Data rating ini digunakan untuk mengidentifikasi kesukaan dan preferensi pembaca terhadap buku tertentu. Dengan mempelajari preferensi dan perilaku pembaca, model _RecommenderNet_ dapat memberikan rekomendasi buku yang relevan dan sesuai dengan minat pembaca.
-Hasil Top-N Recommendation Hasil pengujian sistem rekomendasi dengan pendekatan _Collaborative Filtering_ sebagai berikut:
-|  no | Book Title                      |   
-|-----|---------------------------------|
-|  1  | Harper Mass Market Paperbacks   |   
-|  2  | Putnam Publishing Group         |   
-|  3  | Warner Books                    |   
-|  4  | Basic Books                     |   
-|  5  | HarperCollins (UK)              |   
-|  6  | Fireside                        |  
-|  7  | Ebury Press                     |   
-|  8  | Pocket                          |  
-| 9   | Goblinshead                     |   
-| 10  | Santillana S.A. (Alfaguara)     |
-
-
+Membuat model _cnn_ dengan jumlah _hidden_ layer tiga, terdapat tiga layer _Conv2D_ dan tiga layer _MaxPooling2D_.
+Menggunakan layer konvolusi 2 dimensi pada model _neural network_ yang digunakan untuk memproses data gambar dengan nilai (32, (3,3)) dan bentuk input gambar dengan ukuran 150x150 dengan 3 _byte_. Untuk layer konvolusi 2 dimensi yang kedua dengan nilai (64) dan aktivasi relu.
+Lapisan tambahan ditambahkan ke model. Lapisan _Flatten_ digunakan untuk meratakan _output_, diikuti oleh lapisan _Dropout_ untuk mengurangi _overfitting_. Kemudian, dua lapisan yang terhubung sepenuhnya (Padat) dengan fungsi aktivasi rel ditambahkan, dan lapisan keluaran akhir dengan aktivasi _sigmoid_ ditambahkan dengan dua unit yang mewakili dua kelas (kucing dan anjing).
+Melakukan komplikasi model menggunakan fungsi _optimizer adam_ yang digunakan untuk _mengupdate iterasinya_ supaya lebih cepat mencapai titik yang lebih optimal dan _Loss function_ Yang digunakan untuk Klasifikasi adalah _binary_.
+Model dilatih menggunakan fungsi fit, dengan jumlah _epoch_ 40 dan setiap jumlah _step epochnya_ 40, karena itu adalah jumlah yang pas dari datanya dan untuk modelnya. Pelatihan dihentikan jika akurasi pelatihan dan validasi melebihi 0,80, seperti yang ditentukan dalam _callback_.
 
 ## Evaluation
-_RMSE (Root Mean Square Error)_ adalah metrik evaluasi yang digunakan untuk mengukur seberapa akurat model dalam memprediksi nilai.
-Fungsi _plt.plot()_ digunakan untuk memplot nilai _RMSE_ untuk kumpulan data pelatihan dan pengujian, yang disimpan dalam kamus _history.history_ masing-masing di bawah kunci _'root_mean_squared_error'_ dan _'val_root_mean_squared_error'._ 
-Fungsi _plt.title(), plt.ylabel()_, dan _plt.xlabel()_ digunakan untuk menambahkan judul dan label sumbu ke plot. 
-Terakhir, fungsi _plt.legend()_ digunakan untuk menambahkan legenda ke plot yang menunjukkan baris mana yang sesuai dengan data pelatihan dan mana yang sesuai dengan data pengujian.
-Hasil yang didapatkan untuk _val_root_mean_squared_error_ adalah 0.4351 dan _aroot_mean_squared_error_ '0.4351.
-Untuk _loss_ pelatihan 0.6855  dan _val_loss_ 0.6844. Hasil _RMSE_ yang diperoleh menunjukkan hasil yang belom baik karena, Semakin kecil nilai _RMSE_, semakin baik performa model dalam memprediksi data. _RMSE_ yang rendah menunjukkan bahwa model memiliki tingkat akurasi yang tinggi.
-ada beberapa cara untuk memperbaiki nilai _RMSE_ yang kurang baik
-memeriksa Outlier yang dapat mempengaruhi nilai _RMSE_ secara signifikan. Menghapusnya atau memperlakukannya secara berbeda dapat meningkatkan akurasi model, Memilih fitur yang paling relevan dapat meningkatkan akurasi model dan mengurangi nilai _RMSE_
-Mencoba algoritme yang berbeda juga dapat membantu menemukan algoritme yang paling sesuai untuk masalah tertentu dan mengurangi nilai _RMSE_
-Meningkatkan jumlah data yang digunakan untuk melatih model dapat meningkatkan akurasinya dan mengurangi nilai _RMSE_
-dan juga bisa menggunakan validasi silang dapat membantu mengevaluasi performa model dan mengurangi nilai _RMSE_
-Gambar (2)  gambar hasil grafik plot ![image](![gambar](https://github.com/hiafa1472/predictanl/assets/103301400/7805244d-7ad5-4cb2-9c7e-f4167321d494))
+Untuk membuat plot yang menunjukkan perubahan akurasi dan _loss_ model selama pelatihan adalah:
+Pertama, menggunakan _plt.plot()_ untuk membuat plot garis untuk akurasi pelatihan, _loss_ pelatihan dan akurasi, _loss_ validasi.
+Hasil penerapan pada metrik evaluasi adalah memberikan informasi tentang performa model, seperti kemampuan model dalam mengklasifikasikan data dengan benar, jenis kesalahan yang dibuat, dan tingkat kebenaran dari proses klasifikasi sehingga mendapatkan hasil model terbaik.
+Kemudian, _plt.title()_ digunakan untuk memberikan judul plot sebagai "Akurasi Model".
+Selanjutnya, _plt.legend()_ digunakan untuk menampilkan legenda di pojok kiri atau kanan atas plot.
+Terakhir, _plt.show()_ digunakan untuk menampilkan plot akurasi.
+Plot ini membantu menganalisis dan memahami performa model secara visual. 
+Hasil yang didapatkan untuk akurasi pelatihan adalah 0.80 dan akurasi validasi 0.76, ini adalah hasil yang bagus karena Akurasi pelatihan sebesar 0.80 dan akurasi validasi sebesar 0.76 menunjukkan bahwa model dapat memprediksi dengan benar sekitar 80% data pelatihan dan 76% data validasi. Semakin tinggi akurasi, semakin baik performa model.
+Untuk _loss_ pelatihan 0.41 dan _loss_ validasi 0.53 nilai ini adalah hasil yang belum bagus, karena hasil ini menunjukkan bahwa model masih  memiliki kesalahan dengan nilai tinggi dalam memprediksi data. Semakin rendah loss, semakin baik performa model.
+![gambar](https://github.com/hiafa1472/predictanl/assets/103301400/b7cf7103-203a-473c-8f57-bf84d2f5e884)
 
 
-Referensi: [1.] Djamal,A Rhamadanus. Maharani, Warih dan Kurniati, Angelina Prima (2010). Analisis dan Implementasi Metode Item-Based Clustering Hybrid Pada Recomender Sytem 
-[2] Li, Qing  and  Kim, Byeong  Man  2002. An Approach for Combining Content-based  and  Collaborative Filters. Departement of Computer Sciences,Kumoh National Institute of Technology
-
+Referensi: [1.] Suyanto, (2018), Machine Learning Tingkat Dasar dan Lanjut, Penerbit Informatika Bandung. 
 
 **---Ini adalah bagian akhir laporan---**
