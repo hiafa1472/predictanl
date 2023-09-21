@@ -57,6 +57,8 @@ Plot ini membantu menganalisis dan memahami performa model secara visual.
 Hasil yang didapatkan untuk akurasi pelatihan adalah 0.80 dan akurasi validasi 0.76, ini adalah hasil yang bagus karena Akurasi pelatihan sebesar 0.80 dan akurasi validasi sebesar 0.76 menunjukkan bahwa model dapat memprediksi dengan benar sekitar 80% data pelatihan dan 76% data validasi. Semakin tinggi akurasi, semakin baik performa model.
 Untuk _loss_ pelatihan 0.41 dan _loss_ validasi 0.53 nilai ini adalah hasil yang belum bagus, karena hasil ini menunjukkan bahwa model masih  memiliki kesalahan dengan nilai tinggi dalam memprediksi data. Semakin rendah loss, semakin baik performa model.
 ![gambar](https://github.com/hiafa1472/predictanl/assets/103301400/b7cf7103-203a-473c-8f57-bf84d2f5e884)
+![Screenshot 2023-09-21 141208](https://github.com/hiafa1472/predictanl/assets/103301400/249ee923-14d9-4a51-b3ce-694b82b4e080)
+
 
 
 Referensi: [1.] Suyanto, (2018), Machine Learning Tingkat Dasar dan Lanjut, Penerbit Informatika Bandung. 
